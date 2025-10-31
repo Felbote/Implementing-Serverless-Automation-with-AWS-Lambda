@@ -1,0 +1,6 @@
+import os
+
+destination_dir = "aws_project/s3/destination_bucket/resized"
+os.makedirs(destination_dir, exist_ok=True)
+
+print("✅ destination_bucket/ with 'resized/' folder created.")
