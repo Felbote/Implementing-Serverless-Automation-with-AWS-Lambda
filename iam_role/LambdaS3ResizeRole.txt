@@ -1,0 +1,36 @@
+Role Name: LambdaS3ResizeRole
+
+Trusted Entity: AWS Lambda
+Description: This IAM role allows AWS Lambda functions to interact with S3 buckets and write logs to CloudWatch.
+
+Attached Policies:
+1. AmazonS3FullAccess
+   - Grants full access to S3 buckets.
+   - In production, consider using a more restrictive custom policy that limits access to specific buckets only.
+
+2. AWSLambdaBasicExecutionRole
+   - Provides permissions for Lambda to write logs to CloudWatch.
+
+Purpose:
+- Enable the Lambda function 'my-image-processor' to:
+  * Read from the source bucket (your-blog-original-uploads)
+  * Write to the destination bucket (your-blog-public-assets)
+  * Log processing information and errors to CloudWatch
+
+Trust Relationship:
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+Notes:
+- For security best practices, avoid using AmazonS3FullAccess in production.
+- Instead, create a custom policy granting access only to the required buckets.

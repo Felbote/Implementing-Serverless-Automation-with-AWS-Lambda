@@ -1,0 +1,13 @@
+from PIL import Image
+import os
+
+source_dir = "aws_project/s3/source_bucket"
+os.makedirs(source_dir, exist_ok=True)
+
+# Create 3 sample images
+for i, color in enumerate(["red", "green", "blue"], start=1):
+    img = Image.new("RGB", (1024, 768), color=color)
+    file_path = os.path.join(source_dir, f"sample{i}.jpg")
+    img.save(file_path)
+
+print("✅ Sample images created in source_bucket/")
