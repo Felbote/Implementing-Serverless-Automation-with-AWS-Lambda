@@ -14,16 +14,4 @@ AWS Lambda ➡️ (Fetches the image, resizes)
 Lambda ➡️ Saves Optimized Image ➡️ S3 Bucket "public-assets"
 
 Blog ➡️ (Loads the optimized image from public-assets)
-aws_project/
-├── s3/
-│   ├── source_bucket/              # Where original uploads would go
-│   └── destination_bucket/         # Where resized images will be saved
-├── iam_role/                       # Documentation/metadata for the Role
-│   └── LambdaS3ResizeRole.txt
-├── lambda_function/
-│   └── my-image-processor.py       # Lambda function code
-└── lambda_layer/
-    └── python/
-        └── lib/
-            └── python3.11/
-                └── site-packages/  # Where Pillow will be installed
+
