@@ -14,4 +14,3 @@ AWS Lambda ➡️ (Fetches the image, resizes)
 Lambda ➡️ Saves Optimized Image ➡️ S3 Bucket "public-assets"
 
 Blog ➡️ (Loads the optimized image from public-assets)
-
